@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApiEstoque
+namespace WebApiEstoque.Models
 {
     public class Produto
     {
@@ -11,7 +11,7 @@ namespace WebApiEstoque
         public string nome { get; set; }
         public string modelo { get; set; }
         public string cor { get; set; }
-        public double tamanho { get; set; }
+        public string tamanho { get; set; }
         public int quantidade { get; set; }
         public string imageUrl { get; set; }
     }
