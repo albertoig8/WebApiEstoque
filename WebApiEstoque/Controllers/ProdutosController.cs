@@ -20,14 +20,14 @@ namespace WebApiEstoque.Controllers
             _context = context;
         }
 
-        // GET: api/Produtoes
+        // GET: api/Produtos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Produto>>> GetProdutoItems()
         {
             return await _context.ProdutoItems.ToListAsync();
         }
 
-        // GET: api/Produtoes/5
+        // GET: api/Produtos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Produto>> GetProduto(int id)
         {
@@ -41,7 +41,7 @@ namespace WebApiEstoque.Controllers
             return produto;
         }
 
-        // PUT: api/Produtoes/5
+        // PUT: api/Produtos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduto(int id, Produto produto)
@@ -72,7 +72,7 @@ namespace WebApiEstoque.Controllers
             return NoContent();
         }
 
-        // POST: api/Produtoes
+        // POST: api/Produtos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Produto>> PostProduto(Produto produto)
@@ -83,7 +83,7 @@ namespace WebApiEstoque.Controllers
             return CreatedAtAction("GetProduto", new { id = produto.ID }, produto);
         }
 
-        // DELETE: api/Produtoes/5
+        // DELETE: api/Produtos/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduto(int id)
         {
