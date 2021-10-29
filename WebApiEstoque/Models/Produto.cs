@@ -7,12 +7,12 @@ namespace WebApiEstoque.Models
 {
     public class Produto
     {
-        public int ID { get; set; }
-        public string nome { get; set; }
-        public string modelo { get; set; }
-        public string cor { get; set; }
-        public string tamanho { get; set; }
-        public int quantidade { get; set; }
-        public string imageUrl { get; set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Modelo { get; set; }
+        public string Cor { get; set; }
+        public int Quantidade { get; set; }
+        public string Tamanho { get; set; }
+        public string image { get; set; }
     }
 }
