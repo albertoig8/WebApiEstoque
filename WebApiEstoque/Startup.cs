@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using WebApiEstoque.Models;
+using System;
+using Microsoft.Extensions.Logging;
 
 namespace WebApiEstoque
 {
@@ -21,10 +23,21 @@ namespace WebApiEstoque
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Passando a versão do MySql
             var serverVersion = new MySqlServerVersion(new System.Version(8,0,26));
-            var conexao = Configuration["ConnectionMySQL:MySqlConnectionString"];
+            // Pegando a string de conexão do banco
+            var connection = Configuration["ConnectionMySQL:MySqlConnectionString"];
+
             services.AddControllers();
-            services.AddDbContext<ProdutoContext>(opt => opt.UseMySql(conexao, serverVersion));
+            services.AddDbContext<ProdutoContext>(
+                opt => opt
+                .UseMySql(connection, serverVersion)
+                 .UseMySql(connection, serverVersion)
+                // Configurações de log(mensagens de erro em sequência)
+                .LogTo(Console.WriteLine, LogLevel.Information)
+                .EnableDetailedErrors()
+                );
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApiEstoque", Version = "v1" });
