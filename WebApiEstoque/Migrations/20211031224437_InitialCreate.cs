@@ -14,23 +14,23 @@ namespace WebApiEstoque.Migrations
                 name: "ProdutoItems",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    nome = table.Column<string>(type: "longtext", nullable: true)
+                    Nome = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    modelo = table.Column<string>(type: "longtext", nullable: true)
+                    Modelo = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    cor = table.Column<string>(type: "longtext", nullable: true)
+                    Cor = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    tamanho = table.Column<string>(type: "longtext", nullable: true)
+                    Quantidade = table.Column<int>(type: "int", nullable: false),
+                    Tamanho = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    quantidade = table.Column<int>(type: "int", nullable: false),
-                    imageUrl = table.Column<string>(type: "longtext", nullable: true)
+                    imageUrl = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProdutoItems", x => x.ID);
+                    table.PrimaryKey("PK_ProdutoItems", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
         }

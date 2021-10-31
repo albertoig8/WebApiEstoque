@@ -18,29 +18,34 @@ namespace WebApiEstoque.Migrations
 
             modelBuilder.Entity("WebApiEstoque.Models.Produto", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("cor")
+                    b.Property<string>("Cor")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tamanho")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("imageUrl")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("modelo")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("nome")
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("quantidade")
-                        .HasColumnType("int");
-
-                    b.Property<string>("tamanho")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("ProdutoItems");
                 });
