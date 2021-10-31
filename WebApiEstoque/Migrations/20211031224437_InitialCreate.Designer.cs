@@ -8,7 +8,7 @@ using WebApiEstoque.Models;
 namespace WebApiEstoque.Migrations
 {
     [DbContext(typeof(ProdutoContext))]
-    [Migration("20211031204729_InitialCreate")]
+    [Migration("20211031224437_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,21 +25,26 @@ namespace WebApiEstoque.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Cor")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Modelo")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
                     b.Property<string>("Tamanho")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("image")
+                    b.Property<string>("imageUrl")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");

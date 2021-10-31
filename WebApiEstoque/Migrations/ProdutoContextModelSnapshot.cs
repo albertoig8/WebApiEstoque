@@ -23,21 +23,26 @@ namespace WebApiEstoque.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Cor")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Modelo")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
                     b.Property<string>("Tamanho")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("image")
+                    b.Property<string>("imageUrl")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
