@@ -46,7 +46,7 @@ namespace WebApiEstoque.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduto(int id, Produto produto)
         {
-            if (id != produto.ID)
+            if (id != produto.Id)
             {
                 return BadRequest();
             }
@@ -80,7 +80,7 @@ namespace WebApiEstoque.Controllers
             _context.ProdutoItems.Add(produto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduto", new { id = produto.ID }, produto);
+            return CreatedAtAction("GetProduto", new { id = produto.Id }, produto);
         }
 
         // DELETE: api/Produtos/5
@@ -101,7 +101,7 @@ namespace WebApiEstoque.Controllers
 
         private bool ProdutoExists(int id)
         {
-            return _context.ProdutoItems.Any(e => e.ID == id);
+            return _context.ProdutoItems.Any(e => e.Id == id);
         }
     }
 }
