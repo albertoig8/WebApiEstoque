@@ -20,7 +20,7 @@ namespace WebApiEstoque
 
         public IConfiguration Configuration { get; }
 
-        // Este método é chamado pelo tempo de execução. Use este método para adicionar serviços ao contêiner.
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             // Passando a versão do MySql
@@ -29,11 +29,10 @@ namespace WebApiEstoque
             var connection = Configuration["ConnectionMySQL:MySqlConnectionString"];
 
             services.AddControllers();
-            // Configurando o serviço que vai ser o Contexto de ProdutoCOntext para conseguir persistir os dados no banco.
             services.AddDbContext<ProdutoContext>(
-                // Registrando a option passando a string de conexão e a versão do MySql.
                 opt => opt
                 .UseMySql(connection, serverVersion)
+                 .UseMySql(connection, serverVersion)
                 // Configurações de log(mensagens de erro em sequência)
                 .LogTo(Console.WriteLine, LogLevel.Information)
                 .EnableDetailedErrors()
@@ -45,7 +44,7 @@ namespace WebApiEstoque
             });
         }
 
-        // Este método é chamado pelo tempo de execução. Use este método para configurar o pipeline de solicitação HTTP.
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
