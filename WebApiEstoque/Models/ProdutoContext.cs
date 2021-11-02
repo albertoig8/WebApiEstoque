@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace WebApiEstoque.Models
 {
     // Classe de contexto.
-    // : significa que essa classe esta extendendo a classe DbContext.
+    // : Significa que essa classe esta extendendo a classe DbContext.
     // Essa classe é filha da Classe DbContext.
     public class ProdutoContext : DbContext
     {
