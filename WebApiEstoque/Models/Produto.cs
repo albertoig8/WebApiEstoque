@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApiEstoque.Models
 {
+    // Classe modelo que vai ser usada para criar o objeto e salvar no banco de dados.
     public class Produto
     {
         public int Id { get; set; }
